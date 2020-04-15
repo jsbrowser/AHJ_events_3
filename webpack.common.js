@@ -19,41 +19,36 @@ module.exports = {
     }),
   ],
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+    rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
       },
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader, 'css-loader',
-        ],
-      },
+    },
+    {
+      test: /\.css$/,
+      use: [
+        MiniCssExtractPlugin.loader, 'css-loader',
+      ],
+    },
 
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-          },
-        ],
-      },
-      {
-        test: /\.(png)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              esModule: false,
-              name: '[name].[ext]',
-            },
-          },
-        ],
-      },
+    {
+      test: /\.html$/,
+      use: [{
+        loader: 'html-loader',
+      }],
+    },
+    {
+      test: /\.(png|jpg|gif|ico)$/,
+      use: [{
+        loader: 'file-loader',
+        options: {
+          esModule: false,
+          name: '[name].[ext]',
+        },
+      }],
+    },
     ],
   },
 };
